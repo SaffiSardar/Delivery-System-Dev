@@ -19,10 +19,20 @@ const Sidebar = () => {
             </div>
         </div>
 
-        
+        <div className="mid">
+            <li><img src={assets.} alt="" />Customer Records</li>
+            <li><img src={assets.} alt="" />Drone Catalogue</li>
+            <li><img src={assets.} alt="" />Warehouses</li>
+            <li><img src={assets.} alt="" />Products</li>
+            <li><img src={assets.} alt="" />Order Records</li>
+            <li><img src={assets.} alt="" />Delivery Records</li>
+            <li><img src={assets.} alt="" />Flight Records</li>
+            <li><img src={assets.} alt="" />Weather Data</li>
+            <li><img src={assets.} alt="" />Restricted Zones</li>
+        </div>
 
         <div className="bottom">
-            
+            <li>Logout</li>
         </div>
     </div>
   )
