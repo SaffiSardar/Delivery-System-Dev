@@ -20,19 +20,19 @@ const Sidebar = () => {
         </div>
 
         <div className="mid">
-            <li><img src={assets.} alt="" />Customer Records</li>
-            <li><img src={assets.} alt="" />Drone Catalogue</li>
-            <li><img src={assets.} alt="" />Warehouses</li>
-            <li><img src={assets.} alt="" />Products</li>
-            <li><img src={assets.} alt="" />Order Records</li>
-            <li><img src={assets.} alt="" />Delivery Records</li>
-            <li><img src={assets.} alt="" />Flight Records</li>
-            <li><img src={assets.} alt="" />Weather Data</li>
-            <li><img src={assets.} alt="" />Restricted Zones</li>
+            <li><img src={assets.icons8_customer_48} alt="" />{extended?<p>Customer Records</p>:null}</li>
+            <li><img src={assets.icons8_drone_48} alt="" />{extended?<p>Drone Catalogue</p>:null}</li>
+            <li><img src={assets.icons8_warehouse_48} alt="" />{extended?<p>Warehouses</p>:null}</li>
+            <li><img src={assets.icons8_product_48} alt="" />{extended?<p>Products</p>:null}</li>
+            <li><img src={assets.icons8_order_48} alt="" />{extended?<p>Order Records</p>:null}</li>
+            <li><img src={assets.icons8_delivery_48} alt="" />{extended?<p>Delivery Records</p>:null}</li>
+            <li><img src={assets.icons8_flight_48} alt="" />{extended?<p>Flight Records</p>:null}</li>
+            <li><img src={assets.icons8_clouds_48} alt="" />{extended?<p>Weather Data</p>:null}</li>
+            <li><img src={assets.icons8_restricted_48} alt="" />{extended?<p>Restricted Zones</p>:null}</li>
         </div>
 
         <div className="bottom">
-            <li>Logout</li>
+            <li><img src={assets.icons8_logout_48} alt="" />{extended?<p>Logout</p>:null}</li>
         </div>
     </div>
   )

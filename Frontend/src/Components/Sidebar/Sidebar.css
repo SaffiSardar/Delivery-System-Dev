@@ -14,21 +14,23 @@
 
 .sidebar .menu{
     display: block;
-    margin-left: 10px;
+    margin: 26px;
     cursor: pointer;
 }
 
 .sidebar .home{
-    margin-top: 50px;
+    
     display: inline-flex;
     align-items: center;
     gap: 10px;
     padding: 10px 15px;
-    background-color: rgba(219, 225, 231, 0.342);
+    background-color: rgba(157, 161, 165, 0.342);
     border-radius: 50px;
     font-size: 14px;
     color: gray;
     cursor: pointer;
+    margin: 13px;
+    margin-top: 50px;
 }
 
 
@@ -40,8 +42,12 @@ li{
     border-radius: 50px;
     background-color: rgba(182, 188, 194, 0.342);
     padding: 10px 15px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
 
 }
+
 
 
 
