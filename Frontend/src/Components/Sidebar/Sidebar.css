@@ -34,6 +34,10 @@
 }
 
 
+li:hover{
+    background-color: rgb(218, 223, 226);
+}
+
 li{
     list-style: none;
     margin: 13px;
