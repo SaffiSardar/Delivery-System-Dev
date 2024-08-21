@@ -1,8 +1,12 @@
 import React from 'react'
+import './Main.css'
+import { assets } from '../../assets/assets'
 
 const Main = () => {
   return (
-    <div>Main</div>
+    <div className='main'>
+        main
+    </div>
   )
 }
 
