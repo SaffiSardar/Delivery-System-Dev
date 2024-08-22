@@ -45,9 +45,19 @@
     justify-content: space-evenly;
 }
 
-.output{
+.output {
     background-color: antiquewhite;
     height: 30px;
     width: 30px;
     border-radius: 50%;
+}
+
+.type p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.output img{
+    height: 20px;
 }
