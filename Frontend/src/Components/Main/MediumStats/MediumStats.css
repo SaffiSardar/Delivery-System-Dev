@@ -1,0 +1,53 @@
+.Statbox{
+    height: 16.5vh;
+    width: 20vw;
+    background-color: rgb(201, 201, 201);
+    border-radius: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-evenly;
+}
+
+.type {
+    background-color: rgba(49, 49, 49, 0.562);
+    margin: 20px;
+    width: 150px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.active {
+    background-color: rgba(49, 49, 49, 0.562);
+    margin: 20px;
+    width: 150px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.busy {
+    background-color: rgba(49, 49, 49, 0.562);
+    margin: 20px;
+    width: 150px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.total {
+    background-color: rgba(49, 49, 49, 0.562);
+    margin: 20px;
+    width: 150px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.output{
+    background-color: antiquewhite;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}

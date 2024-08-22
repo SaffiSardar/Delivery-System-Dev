@@ -61,4 +61,7 @@
     height: 20vh;
     background-color: rgba(182, 180, 178, 0.233);
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
