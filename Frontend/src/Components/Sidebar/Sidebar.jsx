@@ -21,7 +21,7 @@ const Sidebar = () => {
 
         <div className="mid">
             <li><img src={assets.icons8_customer_48} alt="" />{extended?<p>Customer Records</p>:null}</li>
-            <li><img src={assets.icons8_drone_48} alt="" />{extended?<p>Drone Catalogue</p>:null}</li>
+            <li><img src={assets.icons8_drone_48} alt="" />{extended?<p>Medium Catalogue</p>:null}</li>
             <li><img src={assets.icons8_warehouse_48} alt="" />{extended?<p>Warehouses</p>:null}</li>
             <li><img src={assets.icons8_product_48} alt="" />{extended?<p>Products</p>:null}</li>
             <li><img src={assets.icons8_order_48} alt="" />{extended?<p>Order Records</p>:null}</li>
