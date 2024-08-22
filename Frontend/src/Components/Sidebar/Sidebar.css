@@ -18,6 +18,10 @@
     cursor: pointer;
 }
 
+.sidebar .home:hover{
+    background-color: rgb(218, 223, 226);
+}
+
 .sidebar .home{
     
     display: inline-flex;

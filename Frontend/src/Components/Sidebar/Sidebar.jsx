@@ -26,7 +26,6 @@ const Sidebar = () => {
             <li><img src={assets.icons8_product_48} alt="" />{extended?<p>Products</p>:null}</li>
             <li><img src={assets.icons8_order_48} alt="" />{extended?<p>Order Records</p>:null}</li>
             <li><img src={assets.icons8_delivery_48} alt="" />{extended?<p>Delivery Records</p>:null}</li>
-            <li><img src={assets.icons8_flight_48} alt="" />{extended?<p>Flight Records</p>:null}</li>
             <li><img src={assets.icons8_clouds_48} alt="" />{extended?<p>Weather Data</p>:null}</li>
             <li><img src={assets.icons8_restricted_48} alt="" />{extended?<p>Restricted Zones</p>:null}</li>
         </div>

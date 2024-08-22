@@ -5,4 +5,60 @@
     margin: 20px;
     border-radius: 20px;
     padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.OrderStats{
+    height: 20vh;
+    background-color: rgba(182, 180, 178, 0.233);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.OrderStats .activeorders{
+    height: 15vh;
+    width: 30vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.OrderStats .pendingorders{
+    height: 15vh;
+    width: 30vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.OrderStats p{
+    font-size: 35px;
+}
+
+.OrderStats .outp{
+    background-color: rgb(201, 201, 201);
+    width: 8.5vw;
+    height: 7vh;
+    border-radius: 25px;
+}
+
+.LinkedBranches{
+    height: 40vh;
+    background-color: rgba(182, 180, 178, 0.233);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+.TMStats{
+    height: 20vh;
+    background-color: rgba(182, 180, 178, 0.233);
+    border-radius: 10px;
 }
