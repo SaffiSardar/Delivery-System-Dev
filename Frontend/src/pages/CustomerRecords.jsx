@@ -1,8 +1,16 @@
 import React from 'react'
 
+
 const CustomerRecords = () => {
   return (
-    <div>CustomerRecords</div>
+    <div className='container'>
+      <div className="searchbox">
+
+      </div>
+      <table className='table'>
+
+      </table>
+    </div>
   )
 }
 
