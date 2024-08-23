@@ -1,15 +1,12 @@
 import React from 'react'
 import './CustomerRecords.css'
-import Button from '../Components/Button/Button'
-import SearchInput from '../Components/SearchInput/SearchInput'
-
+import SearchBox from '../Components/SearchBox/SearchBox'
 const CustomerRecords = () => {
   return (
     <div className='container'>
-      <div className="searchbox">
-        <SearchInput/>
-        <Button/>
-      </div>
+
+        <SearchBox/>
+
         <div className='table'>
 
         <table>
