@@ -1,8 +1,11 @@
 import React from 'react'
+import './Similar.css'
 
 const DeliveryRecords = () => {
   return (
-    <div>DeliveryRecords</div>
+    <div className="container">
+      
+    </div>
   )
 }
 

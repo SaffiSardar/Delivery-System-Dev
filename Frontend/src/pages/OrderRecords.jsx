@@ -1,8 +1,12 @@
 import React from 'react'
+import './OrderRecords.css'
+import './Similar.css'
 
 const OrderRecords = () => {
   return (
-    <div>OrderRecords</div>
+    <div className="container">
+
+    </div>
   )
 }
 

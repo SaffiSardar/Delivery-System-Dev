@@ -1,8 +1,11 @@
 import React from 'react'
+import './Similar.css'
 
 const RestrictedZones = () => {
   return (
-    <div>RestrictedZones</div>
+    <div className="container">
+      
+    </div>
   )
 }
 

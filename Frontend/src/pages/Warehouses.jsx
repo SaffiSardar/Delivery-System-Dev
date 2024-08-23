@@ -1,8 +1,9 @@
 import React from 'react'
+import './Similar.css'
 
 const Warehouses = () => {
   return (
-    <div>Warehouses</div>
+    <div className="container"></div>
   )
 }
 

@@ -4,7 +4,7 @@ import SearchBox from '../Components/SearchBox/SearchBox'
 const CustomerRecords = () => {
   return (
     <div className='container'>
-
+      
         <SearchBox/>
 
         <div className='table'>

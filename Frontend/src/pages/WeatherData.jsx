@@ -1,8 +1,11 @@
 import React from 'react'
+import './Similar.css'
 
 const WeatherData = () => {
   return (
-    <div>WeatherData</div>
+    <div className="container">
+      
+    </div>
   )
 }
 

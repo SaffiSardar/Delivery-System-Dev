@@ -1,8 +1,11 @@
 import React from 'react'
+import './Similar.css'
 
 const MediumCatalogue = () => {
   return (
-    <div>MediumCatalogue</div>
+    <div className="container">
+      
+    </div>
   )
 }
 

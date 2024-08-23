@@ -1,14 +1,4 @@
-.container{
-    background-color: whitesmoke;
-    width: 100%;
-    height: auto;
-    margin: 20px;
-    border-radius: 20px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
+
 
 .table{
     height: 70vh;
