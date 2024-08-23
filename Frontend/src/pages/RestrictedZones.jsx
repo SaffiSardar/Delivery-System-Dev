@@ -9,57 +9,29 @@ const RestrictedZones = () => {
       <table>
           <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>CNIC</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Status</th>
+            <th>Location</th>
           </tr>
           <tr>
             <td>xyz</td>
             <td>xyz</td>
-            <td>xyz</td>
-            <td>xyz</td>
+          </tr>
+          <tr>
             <td>xyz</td>
             <td>xyz</td>  
           </tr>
           <tr>
             <td>xyz</td>
-            <td>xyz</td>
-            <td>xyz</td>
-            <td>xyz</td>
+            <td>xyz</td>  
+          </tr>
+          <tr>
             <td>xyz</td>
             <td>xyz</td>  
           </tr>
           <tr>
             <td>xyz</td>
-            <td>xyz</td>
-            <td>xyz</td>
-            <td>xyz</td>
-            <td>xyz</td>
             <td>xyz</td>  
           </tr>
           <tr>
-            <td>xyz</td>
-            <td>xyz</td>
-            <td>xyz</td>
-            <td>xyz</td>
-            <td>xyz</td>
-            <td>xyz</td>  
-          </tr>
-          <tr>
-            <td>xyz</td>
-            <td>xyz</td>
-            <td>xyz</td>
-            <td>xyz</td>
-            <td>xyz</td>
-            <td>xyz</td>  
-          </tr>
-          <tr>
-            <td>xyz</td>
-            <td>xyz</td>
-            <td>xyz</td>
-            <td>xyz</td>
             <td>xyz</td>
             <td>xyz</td>  
           </tr>
