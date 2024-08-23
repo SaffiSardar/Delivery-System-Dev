@@ -13,6 +13,7 @@ const CustomerRecords = () => {
           <tr>
             <th>Name</th>
             <th>Email</th>
+            
           </tr>
           <tr>
             <td>Hillary</td>

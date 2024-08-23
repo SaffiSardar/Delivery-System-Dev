@@ -1,9 +1,14 @@
 import React from 'react'
-import './Similar.css'
+import SearchBox from '../Components/SearchBox/SearchBox'
 
 const Warehouses = () => {
   return (
-    <div className="container"></div>
+    <div className="container">
+      <SearchBox/>
+      <div className="table">
+        
+      </div>
+    </div>
   )
 }
 
