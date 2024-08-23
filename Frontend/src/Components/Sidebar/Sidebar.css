@@ -56,8 +56,23 @@ li{
 
 }
 
-
-
+.Nav-link {
+    text-decoration: none;
+    color: #333;         
+    padding: 3px 6px;  
+    font-size: 16px;      
+    display: inline-block; 
+    transition: all 0.2s ease; 
+  }
+  
+  .Nav-link:hover,
+  .Nav-link:focus {
+    text-decoration: none; 
+  }
+  
+  
+ 
+  
 
 
 
