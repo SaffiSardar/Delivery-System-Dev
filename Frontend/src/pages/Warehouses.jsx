@@ -50,6 +50,7 @@ const Warehouses = () => {
             <td>xyz</td> 
           </tr>
         </table>
+        <button>Add new warehouse</button>
       </div>
     </div>
   )

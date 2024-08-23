@@ -64,6 +64,7 @@ const DeliveryRecords = () => {
             <td>xyz</td>  
           </tr>
         </table>
+        <button>Mark all complete</button>
       </div>
     </div>
   )

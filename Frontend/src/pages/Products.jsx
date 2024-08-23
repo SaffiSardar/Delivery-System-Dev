@@ -57,6 +57,7 @@ const Products = () => {
             <td>xyz</td>  
           </tr>
         </table>
+        <button>Add new product</button>
       </div>
     </div>
   )

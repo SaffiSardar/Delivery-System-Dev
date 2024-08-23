@@ -64,6 +64,7 @@ const MediumCatalogue = () => {
             <td>xyz</td>  
           </tr>
         </table>
+        <button>Request new Vehicle</button>
       </div>
     </div>
   )
