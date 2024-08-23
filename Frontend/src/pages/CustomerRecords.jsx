@@ -14,19 +14,44 @@ const CustomerRecords = () => {
 
         <table>
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email Address</th>
+            <th>Name</th>
+            <th>Email</th>
           </tr>
           <tr>
             <td>Hillary</td>
-            <td>Nyakundi</td>
-            <td>tables@mail.com</td>
+            <td>xxxxx@gmail.com</td>
+            
           </tr>
           <tr>
-            <td>Lary</td>
-            <td>Mak</td>
-            <td>developer@mail.com</td>
+            <td>saffi</td>
+            <td>xxxxx@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Hillary</td>
+            <td>xxxxx@gmail.com</td>
+            
+          </tr>
+          <tr>
+            <td>saffi</td>
+            <td>xxxxx@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Hillary</td>
+            <td>xxxxx@gmail.com</td>
+            
+          </tr>
+          <tr>
+            <td>saffi</td>
+            <td>xxxxx@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Hillary</td>
+            <td>xxxxx@gmail.com</td>
+            
+          </tr>
+          <tr>
+            <td>saffi</td>
+            <td>xxxxx@gmail.com</td>
           </tr>
         </table>
       </div>
