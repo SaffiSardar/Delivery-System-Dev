@@ -11,9 +11,13 @@
 }
 
 .searchbox{
+    padding-left: 30px;
     height: 15vh;
     background-color:#e6e6e5;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap:15px;
 }
 
 .table{

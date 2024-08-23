@@ -1,0 +1,29 @@
+.panel{
+    height: 60px;
+    width: 140px;
+    background-color:#c9c9c9;
+    border-radius: 20px;
+}
+
+
+button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 3px #999;
+  }
+
+  
+button:active {
+    background-color: #000000;
+    box-shadow: 0 2px #666;
+    transform: translateX(-4px);
+}
