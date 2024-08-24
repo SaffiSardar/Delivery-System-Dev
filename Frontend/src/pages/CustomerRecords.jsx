@@ -1,5 +1,4 @@
 import React from 'react'
-import './CustomerRecords.css'
 import SearchBox from '../Components/SearchBox/SearchBox'
 const CustomerRecords = () => {
   return (
