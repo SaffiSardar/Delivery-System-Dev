@@ -506,12 +506,6 @@ async def create_warehouse(
 
 
 
-
-
-
-
-
-
 #READ(get)
 
 @app.get("/customers/{customer_id}")

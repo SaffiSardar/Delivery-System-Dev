@@ -10,24 +10,24 @@ class cemail(Base):
     __tablename__ = 'cemails'
     id = Column(Integer, primary_key=True, index=True)
     email = Column(String(40), nullable=False, unique=True, index=True)
-    Customer = relationship("customer", back_populates="Cemail")
+    customers = relationship("customer", back_populates="Cemail")
 
 class ccnic(Base):
-       __tablename__ = 'ccnics'
-       id = Column(Integer, primary_key=True, index=True)
-       cnic = Column(String(15), nullable=False, unique=True, index=True)
-       Customer = relationship("customer",back_populates="Ccnic")
+    __tablename__ = 'ccnics'
+    id = Column(Integer, primary_key=True, index=True)
+    cnic = Column(String(15), nullable=False, unique=True, index=True)
+    customers = relationship("customer", back_populates="Ccnic")
 
 class customer(Base):
-       __tablename__ = 'customers'
-       id = Column(Integer, primary_key=True, index=True)
-       name = Column(String(20), nullable=False, index=True, unique=True)
-       Cemail_id = Column(Integer, ForeignKey('cemails.id'), unique=True)
-       Ccnic_id = Column(Integer, ForeignKey('ccnics.id'), unique=True)
-       Ccnic = relationship("ccnic",back_populates="Customer",uselist=False)
-       Cemail = relationship("cemail",back_populates="Customer",uselist=False)
-       Cphones = relationship("cphone",back_populates="Customer")
-       
+    __tablename__ = 'customers'
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(20), nullable=False, index=True, unique=True)
+    Cemail_id = Column(Integer, ForeignKey('cemails.id'), unique=True)
+    Ccnic_id = Column(Integer, ForeignKey('ccnics.id'), unique=True)
+    Ccnic = relationship("ccnic", back_populates="customers", uselist=False)
+    Cemail = relationship("cemail", back_populates="customers", uselist=False)
+    Cphones = relationship("cphone", back_populates="Customer")
+
 class cphone(Base):
     __tablename__ = 'cphones'
     id = Column(Integer, primary_key=True, index=True)

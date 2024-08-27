@@ -14,17 +14,33 @@ const CustomerRecords = () => {
   }, [currentId]);
 
   const fetchCustomerData = async () => {
-    if (!hasMore) return; // No need to fetch more if there are no more records
+    if (!hasMore) return;
 
     setLoading(true);
     setError(null);
 
     try {
-      const response = await axios.get(`http://127.0.0.1:8000/customers/${currentId}`);
-      const customer = response.data;
+      // Fetch customer data
+      const customerResponse = await axios.get(`http://127.0.0.1:8000/customers/${currentId}`);
+      const customer = customerResponse.data;
 
-      if (customer) {
-        setCustomers(prevCustomers => [...prevCustomers, customer]); // Add to existing records
+      if (customer && !customer.error) {
+        // Fetch related email data
+        const emailResponse = await axios.get(`http://127.0.0.1:8000/cemails/${customer.Cemail_id}`);
+        const email = emailResponse.data;
+
+        // Fetch related CNIC data
+        const cnicResponse = await axios.get(`http://127.0.0.1:8000/ccnics/${customer.Ccnic_id}`);
+        const cnic = cnicResponse.data;
+
+        // Combine the data
+        const fullCustomer = {
+          ...customer,
+          email: email.email || "No email associated",
+          cnic: cnic.cnic || "No CNIC associated"
+        };
+
+        setCustomers(prevCustomers => [...prevCustomers, fullCustomer]); // Add to existing records
         setCurrentId(prevId => prevId + 1); // Increment ID to fetch the next record
       } else {
         setHasMore(false); // Stop fetching if no more records
@@ -54,10 +70,10 @@ const CustomerRecords = () => {
             </thead>
             <tbody>
               {customers.map((customer) => (
-                <tr key={customer.id}> {/* Use a unique key */}
+                <tr key={customer.id}>
                   <td>{customer.name}</td>
-                  <td>{customer.Cemail_id}</td>
-                  <td>{customer.Ccnic_id}</td>
+                  <td>{customer.email}</td>
+                  <td>{customer.cnic}</td>
                 </tr>
               ))}
             </tbody>
