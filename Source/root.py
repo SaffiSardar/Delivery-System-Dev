@@ -5,8 +5,22 @@ from model import customer,cemail,ccnic,cphone,tmedium,mediumtype,product,order,
 from database import LocalSession
 from sqlalchemy.exc import IntegrityError
 from typing import Optional
+
+from fastapi.middleware.cors import CORSMiddleware
+
+
+
+
 #api creation
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # Update to your frontend's URL
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def read_root():
@@ -868,7 +882,6 @@ async def delete_warehouse(warehouse_id: str):
 
 if __name__ == "__main__":
     uvicorn.run(app)
-
 
 
 
