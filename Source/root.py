@@ -6,6 +6,8 @@ from database import LocalSession
 from sqlalchemy.exc import IntegrityError
 from typing import Optional
 
+
+#allowing frontend connection
 from fastapi.middleware.cors import CORSMiddleware
 
 
