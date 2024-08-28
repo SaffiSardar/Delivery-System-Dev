@@ -6,7 +6,6 @@ import DeliveryRecords from './pages/DeliveryRecords'
 import MediumCatalogue from './pages/MediumCatalogue'
 import OrderRecords from './pages/OrderRecords'
 import Products from './pages/Products'
-import RestrictedZones from './pages/RestrictedZones'
 import Warehouses from './pages/Warehouses'
 import WeatherData from './pages/WeatherData'
 import Sidebar from './Components/Sidebar/Sidebar'
@@ -24,7 +23,6 @@ const App = () => {
           <Route path='/mediumcatalogue' element={<MediumCatalogue/>}/>
           <Route path='/orderrecords' element={<OrderRecords/>}/>
           <Route path='/products' element={<Products/>}/>
-          <Route path='/restrictedzones' element={<RestrictedZones/>}/>
           <Route path='/warehouses' element={<Warehouses/>}/>
           <Route path='/weatherdata' element={<WeatherData/>}/>
       </Routes>
