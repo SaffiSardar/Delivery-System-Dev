@@ -18,7 +18,7 @@ const WeatherData = () => {
     if (!hasMore) return;
 
     setLoading(true);
-    setError(null);
+    setError(null);   
 
     try {
 
