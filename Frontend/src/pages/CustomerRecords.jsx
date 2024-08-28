@@ -20,30 +20,30 @@ const CustomerRecords = () => {
     setError(null);
 
     try {
-      // Fetch customer data
+      
       const customerResponse = await axios.get(`http://127.0.0.1:8000/customers/${currentId}`);
       const customer = customerResponse.data;
 
       if (customer && !customer.error) {
-        // Fetch related email data
+        
         const emailResponse = await axios.get(`http://127.0.0.1:8000/cemails/${customer.Cemail_id}`);
         const email = emailResponse.data;
 
-        // Fetch related CNIC data
+        
         const cnicResponse = await axios.get(`http://127.0.0.1:8000/ccnics/${customer.Ccnic_id}`);
         const cnic = cnicResponse.data;
 
-        // Combine the data
+        
         const fullCustomer = {
           ...customer,
           email: email.email || "No email associated",
           cnic: cnic.cnic || "No CNIC associated"
         };
 
-        setCustomers(prevCustomers => [...prevCustomers, fullCustomer]); // Add to existing records
-        setCurrentId(prevId => prevId + 1); // Increment ID to fetch the next record
+        setCustomers(prevCustomers => [...prevCustomers, fullCustomer]); 
+        setCurrentId(prevId => prevId + 1); 
       } else {
-        setHasMore(false); // Stop fetching if no more records
+        setHasMore(false); 
       }
     } catch (error) {
       setError('Error fetching customer data');
