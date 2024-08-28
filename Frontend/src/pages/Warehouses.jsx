@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+
 import SearchBox from '../Components/SearchBox/SearchBox';
 
 const Warehouses = () => {
@@ -35,6 +36,8 @@ const Warehouses = () => {
         const phonereponse = await axios.get(`http://127.0.0.1:8000/warehousephones/${warehouse.Warehousephone_id}`)
         const phone = phonereponse.data;
         
+        console.log(postal.postal)
+
         const fullWarehouse = {
           ...warehouse,
           postal: postal.postal || "No postal associated",
