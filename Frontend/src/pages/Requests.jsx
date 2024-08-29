@@ -2,6 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const Requests = () => {
+  const [mediumData, setMediumData] = useState({
+    name: '',
+    weightlimit: '',
+    speed: '',
+    quantity: '',
+    Mediumtype_id: '',
+  });
+
   const [warehouseData, setWarehouseData] = useState({
     name: '',
     Warehousepostal_id: '',
@@ -17,6 +25,14 @@ const Requests = () => {
     Fragile_id: '',
   });
 
+  const handleMediumInputChange = (event) => {
+    const { name, value } = event.target;
+    setMediumData({
+      ...mediumData,
+      [name]: value,
+    });
+  };
+
   const handleWarehouseInputChange = (event) => {
     const { name, value } = event.target;
     setWarehouseData({
@@ -31,6 +47,24 @@ const Requests = () => {
       ...productData,
       [name]: value,
     });
+  };
+
+  const handleMediumSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:8000/tmediums/', null, {
+        params: {
+          name: mediumData.name,
+          weightlimit: parseInt(mediumData.weightlimit),
+          speed: parseInt(mediumData.speed),
+          quantity: parseInt(mediumData.quantity),
+          Mediumtype_id: mediumData.Mediumtype_id ? parseInt(mediumData.Mediumtype_id) : null,
+        },
+      });
+      console.log('Medium created successfully:', response.data);
+    } catch (error) {
+      console.error('Error posting medium data:', error);
+    }
   };
 
   const handleWarehouseSubmit = async (event) => {
@@ -72,24 +106,29 @@ const Requests = () => {
     <div className="request-container">
       <div className="requestpanel">
         <div className="box1">
-          <button type="submit">Request New Medium</button>
-          <form>
+          <button type="submit" onClick={handleMediumSubmit}>Request New Medium</button>
+          <form onSubmit={handleMediumSubmit}>
             <label>
               Name:
-              <input type="text" name="mediumName" />
+              <input type="text" name="name" value={mediumData.name} onChange={handleMediumInputChange} />
             </label>
             <label>
-              Type:
-              <input type="text" name="mediumType" />
+              Weight Limit:
+              <input type="text" name="weightlimit" value={mediumData.weightlimit} onChange={handleMediumInputChange} />
             </label>
             <label>
               Speed Limit:
-              <input type="text" name="capacity" />
+              <input type="text" name="speed" value={mediumData.speed} onChange={handleMediumInputChange} />
             </label>
             <label>
               Quantity:
-              <input type="text" name="status" />
+              <input type="text" name="quantity" value={mediumData.quantity} onChange={handleMediumInputChange} />
             </label>
+            <label>
+              Medium Type ID:
+              <input type="text" name="Mediumtype_id" value={mediumData.Mediumtype_id} onChange={handleMediumInputChange} />
+            </label>
+            <button type="submit">Submit</button>
           </form>
         </div>
         <div className="box2">
