@@ -9,6 +9,7 @@ import Products from './pages/Products'
 import Warehouses from './pages/Warehouses'
 import WeatherData from './pages/WeatherData'
 import Sidebar from './Components/Sidebar/Sidebar'
+import Requests from './pages/Requests'
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
           <Route path='/products' element={<Products/>}/>
           <Route path='/warehouses' element={<Warehouses/>}/>
           <Route path='/weatherdata' element={<WeatherData/>}/>
+          <Route path='/requests' element={<Requests/>}/>
       </Routes>
     </>
   )
