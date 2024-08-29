@@ -33,25 +33,29 @@
 
 .box1{
     background-color:#e6e6e5;
-    width: 23vw;
+    width: 16vw;
     height: 80vh;
     border-radius: 15px;
     display: flex;
+    justify-content: space-evenly;
+    
 }
 
 .box2{
     background-color:#e6e6e5;
-    width: 23vw;
+    width: 16vw;
     height: 80vh;
     border-radius: 15px;
     display: flex;
+    justify-content: space-evenly;
 }
 .box3{
     background-color:#e6e6e5;
-    width: 23vw;
+    width: 16vw;
     height: 80vh;
     border-radius: 15px;
     display: flex;
+    justify-content: space-evenly;
 }
 
 form{
