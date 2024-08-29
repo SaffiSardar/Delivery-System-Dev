@@ -27,16 +27,6 @@ const OrderRecords = () => {
 
       if (order && !order.error) {
 
-
-
-
-
-
-
-
-
-
-
         setOrders(prevOrders => [...prevOrders, order]);
         setCurrentId(prevId => prevId + 1); 
       } else {
