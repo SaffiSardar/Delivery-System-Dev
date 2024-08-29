@@ -31,7 +31,7 @@ class customer(Base):
 class cphone(Base):
     __tablename__ = 'cphones'
     id = Column(Integer, primary_key=True, index=True)
-    phone = Column(String(12), nullable=False, unique=True, index=True)  # Unique constraint and size check
+    phone = Column(String(12), nullable=False, unique=True, index=True)  
     Customer_id = Column(Integer, ForeignKey('customers.id'))
     Customer = relationship("customer", back_populates="Cphones")
 
@@ -39,10 +39,10 @@ class cphone(Base):
 class tmedium(Base):
     __tablename__ = 'tmediums'
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, nullable=False, index=True)  # Ensuring not null
-    weightlimit = Column(Integer, nullable=False, index=True)  # Ensuring not null
-    speed = Column(Integer, nullable=False, index=True)  # Ensuring not null
-    quantity = Column(Integer, nullable=False, index=True)  # Ensuring not null
+    name = Column(String, nullable=False, index=True)  
+    weightlimit = Column(Integer, nullable=False, index=True)  
+    speed = Column(Integer, nullable=False, index=True)  
+    quantity = Column(Integer, nullable=False, index=True)  
     Mediumtype_id = Column(Integer, ForeignKey('mediumtypes.id'))
     Mediumtype = relationship("mediumtype", back_populates="Tmedium")
 
@@ -50,16 +50,16 @@ class tmedium(Base):
 class mediumtype(Base):
     __tablename__ = 'mediumtypes'
     id = Column(Integer, primary_key=True, index=True)
-    type = Column(String, nullable=False, index=True)  # Ensuring not null
+    type = Column(String, nullable=False, index=True)  
     Tmedium = relationship("tmedium", back_populates="Mediumtype")
 
 
 class product(Base):
     __tablename__ = 'products'
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, nullable=False, index=True)  # Ensuring not null
-    price = Column(Integer, nullable=False, index=True)  # Ensuring not null
-    weight = Column(Integer, nullable=False, index=True)  # Ensuring not null
+    name = Column(String, nullable=False, index=True)  
+    price = Column(Integer, nullable=False, index=True)  
+    weight = Column(Integer, nullable=False, index=True)  
     State_id = Column(Integer, ForeignKey('states.id'))
     State = relationship("state", back_populates="Product")
     Fragile_id = Column(Integer, ForeignKey('fragiles.id'))
@@ -69,30 +69,30 @@ class product(Base):
 class state(Base):
     __tablename__ = 'states'
     id = Column(Integer, primary_key=True, index=True)
-    stateyn = Column(String, nullable=False, index=True)  # Ensuring not null
+    stateyn = Column(String, nullable=False, index=True)  
     Product = relationship("product", back_populates="State")
 
 
 class fragile(Base):
     __tablename__ = 'fragiles'
     id = Column(Integer, primary_key=True, index=True)
-    fragileyesno = Column(String, nullable=False, index=True)  # Ensuring not null
+    fragileyesno = Column(String, nullable=False, index=True)  
     Product = relationship("product", back_populates="Fragile")
 
 
 class order(Base):
     __tablename__ = 'orders'
     id = Column(Integer, primary_key=True, index=True)
-    quantity = Column(Integer, nullable=False, index=True)  # Ensuring not null
-    totalprice = Column(Integer, nullable=False, index=True)  # Ensuring not null
+    quantity = Column(Integer, nullable=False, index=True)  
+    totalprice = Column(Integer, nullable=False, index=True)  
 
 
 class delivery(Base):
     __tablename__ = 'deliveries'
     id = Column(Integer, primary_key=True, index=True)
-    daddress = Column(String, nullable=False, index=True)  # Ensuring not null
-    dtime = Column(String, nullable=False, index=True)  # Ensuring not null
-    ddate = Column(String, nullable=False, index=True)  # Ensuring not null
+    daddress = Column(String, nullable=False, index=True)  
+    dtime = Column(String, nullable=False, index=True)  
+    ddate = Column(String, nullable=False, index=True)  
     Deliverystatus_id = Column(Integer, ForeignKey('deliverystatuses.id'))
     Deliverystatus = relationship("deliverystatus", back_populates="Delivery")
 
@@ -100,17 +100,17 @@ class delivery(Base):
 class deliverystatus(Base):
     __tablename__ = 'deliverystatuses'
     id = Column(Integer, primary_key=True, index=True)
-    status = Column(String, nullable=False, index=True)  # Ensuring not null
+    status = Column(String, nullable=False, index=True)  
     Delivery = relationship("delivery", back_populates="Deliverystatus")
 
 
 class Weatherdata(Base):
     __tablename__ = 'weatherdatas'
     id = Column(Integer, primary_key=True, index=True)
-    date = Column(String, nullable=False, index=True)  # Ensuring not null
-    humidity = Column(Integer, nullable=False, index=True)  # Ensuring not null
-    pressure = Column(Integer, nullable=False, index=True)  # Ensuring not null
-    wind = Column(Integer, nullable=False, index=True)  # Ensuring not null
+    date = Column(String, nullable=False, index=True)  
+    humidity = Column(Integer, nullable=False, index=True)  
+    pressure = Column(Integer, nullable=False, index=True)  
+    wind = Column(Integer, nullable=False, index=True)  
     Weathertype_id = Column(Integer, ForeignKey('weathertypes.id'))
     Weathertype = relationship("weathertype", back_populates="weatherdata")
 
@@ -118,17 +118,17 @@ class Weatherdata(Base):
 class weathertype(Base):
     __tablename__ = 'weathertypes'
     id = Column(Integer, primary_key=True, index=True)
-    Weather = Column(String, nullable=False, index=True)  # Ensuring not null
+    Weather = Column(String, nullable=False, index=True)  
     weatherdata = relationship("Weatherdata", back_populates="Weathertype")
 
 
 class warehouse(Base):
     __tablename__ = 'warehouses'
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, nullable=False, index=True)  # Ensuring not null
-    Warehousepostal_id = Column(Integer, ForeignKey('warehousepostals.id'), unique=True)  # Unique constraint
-    Warehouselocation_id = Column(Integer, ForeignKey('warehouselocations.id'), unique=True)  # Unique constraint
-    Warehousephone_id = Column(Integer, ForeignKey('warehousephones.id'), unique=True)  # Unique constraint
+    name = Column(String, nullable=False, index=True)  
+    Warehousepostal_id = Column(Integer, ForeignKey('warehousepostals.id'), unique=True)  
+    Warehouselocation_id = Column(Integer, ForeignKey('warehouselocations.id'), unique=True)  
+    Warehousephone_id = Column(Integer, ForeignKey('warehousephones.id'), unique=True)  
     Warehousepostal = relationship("warehousepostal", back_populates="Warehouse", uselist=False)
     Warehouselocation = relationship("warehouselocation", back_populates="Warehouse", uselist=False)
     Warehousephone = relationship("warehousephone", back_populates="Warehouse", uselist=False)
@@ -137,19 +137,19 @@ class warehouse(Base):
 class warehousepostal(Base):
     __tablename__ = 'warehousepostals'
     id = Column(Integer, primary_key=True, index=True)
-    postal = Column(String, nullable=False, index=True)  # Ensuring not null
+    postal = Column(String, nullable=False, index=True)  
     Warehouse = relationship("warehouse", back_populates="Warehousepostal")
 
 
 class warehouselocation(Base):
     __tablename__ = 'warehouselocations'
     id = Column(Integer, primary_key=True, index=True)
-    location = Column(String, nullable=False, index=True)  # Ensuring not null
+    location = Column(String, nullable=False, index=True)  
     Warehouse = relationship("warehouse", back_populates="Warehouselocation")
 
 
 class warehousephone(Base):
     __tablename__ = 'warehousephones'
     id = Column(Integer, primary_key=True, index=True)
-    phone = Column(String, nullable=False, index=True)  # Ensuring not null
+    phone = Column(String, nullable=False, index=True)  
     Warehouse = relationship("warehouse", back_populates="Warehousephone")
