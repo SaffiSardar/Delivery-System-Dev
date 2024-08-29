@@ -54,6 +54,23 @@
     display: flex;
 }
 
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+input{
+    margin-left: 20px;
+    outline: none;
+    border: none;
+    height: 3vh;
+    border-radius: 5px;
+    background-color: rgb(169, 184, 187);
+}
+
 
 .table{
     height: 70vh;
