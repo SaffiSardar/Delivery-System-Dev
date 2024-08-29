@@ -80,9 +80,6 @@ const DeliveryRecords = () => {
         ) : (
           !loading && <p>No delivery data available.</p>
         )}
-        {deliveries.length > 0 && (
-          <button>Mark all complete</button>
-        )}
       </div>
     </div>
   );
