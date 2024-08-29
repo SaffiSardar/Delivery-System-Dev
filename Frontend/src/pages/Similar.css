@@ -9,6 +9,52 @@
     flex-direction: column;
     justify-content: space-evenly;
 }
+
+.request-container{
+    background-color: whitesmoke;
+    width: 100%;
+    height: auto;
+    margin: 20px;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.requestpanel{
+    width: 75vw;
+    height: 80vh;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.box1{
+    background-color:#e6e6e5;
+    width: 23vw;
+    height: 80vh;
+    border-radius: 15px;
+    display: flex;
+}
+
+.box2{
+    background-color:#e6e6e5;
+    width: 23vw;
+    height: 80vh;
+    border-radius: 15px;
+    display: flex;
+}
+.box3{
+    background-color:#e6e6e5;
+    width: 23vw;
+    height: 80vh;
+    border-radius: 15px;
+    display: flex;
+}
+
+
 .table{
     height: 70vh;
     background-color:#e6e6e5;

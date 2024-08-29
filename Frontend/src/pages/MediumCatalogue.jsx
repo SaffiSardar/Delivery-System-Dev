@@ -83,9 +83,7 @@ const MediumCatalogue = () => {
         ) : (
           !loading && <p>No vehicle data available.</p>
         )}
-        {vehicles.length > 0 && (
-          <button>Request new Vehicle</button>
-        )}
+        
       </div>
     </div>
   );

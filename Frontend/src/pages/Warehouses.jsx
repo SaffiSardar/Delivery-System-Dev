@@ -90,7 +90,6 @@ const Warehouses = () => {
         ) : (
           !loading && <p>No warehouse data available.</p>
         )}
-        <button>Add new warehouse</button>
       </div>
     </div>
   );

@@ -87,9 +87,6 @@ const Products = () => {
         ) : (
           !loading && <p>No product data available.</p>
         )}
-        {products.length > 0 && (
-          <button>Add new product</button>
-        )}
       </div>
     </div>
   );
