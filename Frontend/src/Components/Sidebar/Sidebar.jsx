@@ -31,6 +31,8 @@ const Sidebar = () => {
         </div>
 
         <div className="bottom">
+            
+        <li><img src={assets.icons8_request_48} alt="" />{extended?<p>Requests</p>:null}</li>
             <li><img src={assets.icons8_logout_48} alt="" />{extended?<p>Logout</p>:null}</li>
         </div>
     </div>

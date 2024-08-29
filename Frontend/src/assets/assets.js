@@ -12,6 +12,7 @@ import menu_icon from './menu_icon.png'
 import icons8_logout_48 from './icons8_logout_48.png' 
 import branch from './branch.jpg'
 import icons8_truck_50 from './icons8_truck_50.png'
+import icons8_request_48 from './icons8_request_48.png'
 
 
 export const assets = {
@@ -27,5 +28,6 @@ export const assets = {
     menu_icon,
     icons8_logout_48,
     branch,
-    icons8_truck_50
+    icons8_truck_50,
+    icons8_request_48
 }
