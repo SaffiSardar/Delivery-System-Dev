@@ -166,20 +166,19 @@ def test_create_mediumtype_with_empty_string(test_client):
 @pytest.mark.timeout(0.5)
 def test_create_tmedium(test_client):
     response = test_client.post(
-        f"/tmediums/?name=MediumName&weightlimit=1000&speed=200&quantity=50&Mediumtype_id=1"
+        f"/tmediums/?weightlimit=1000&speed=200&quantity=50&Mediumtype_id=1"
     )
     assert response.status_code == 200
-    assert response.json().get("name") == "MediumName"
-
+   
 def test_create_tmedium_with_missing_data(test_client):
     response = test_client.post(
-        f"/tmediums/?weightlimit=1000&speed=200&quantity=50&Mediumtype_id=1"
+        f"/tmediums/?speed=200&quantity=50&Mediumtype_id=1"
     )
     assert response.status_code == 422
 
 def test_create_tmedium_with_negative_values(test_client):
     response = test_client.post(
-        f"/tmediums/?name=MediumName&weightlimit=-1000&speed=-200&quantity=-50&Mediumtype_id=1"
+        f"/tmediums/?weightlimit=-1000&speed=-200&quantity=-50&Mediumtype_id=1"
     )
     assert response.status_code == 422
 

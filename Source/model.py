@@ -39,7 +39,6 @@ class cphone(Base):
 class tmedium(Base):
     __tablename__ = 'tmediums'
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, nullable=False, index=True)  
     weightlimit = Column(Integer, nullable=False, index=True)  
     speed = Column(Integer, nullable=False, index=True)  
     quantity = Column(Integer, nullable=False, index=True)  

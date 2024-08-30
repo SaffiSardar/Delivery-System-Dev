@@ -60,7 +60,6 @@ const MediumCatalogue = () => {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Name</th>
                 <th>Type</th>
                 <th>Speed</th>
                 <th>Weight Limit</th>
@@ -71,7 +70,6 @@ const MediumCatalogue = () => {
               {vehicles.map((vehicle) => (
                 <tr key={vehicle.id}>
                   <td>{vehicle.id}</td>
-                  <td>{vehicle.name}</td>
                   <td>{vehicle.type}</td>
                   <td>{vehicle.speed}</td>
                   <td>{vehicle.weightlimit}</td>

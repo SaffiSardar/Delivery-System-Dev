@@ -3,7 +3,6 @@ import axios from 'axios';
 
 const Requests = () => {
   const [mediumData, setMediumData] = useState({
-    name: '',
     weightlimit: '',
     speed: '',
     quantity: '',
@@ -45,7 +44,6 @@ const Requests = () => {
     try {
       const response = await axios.post('http://localhost:8000/tmediums/', null, {
         params: {
-          name: mediumData.name,
           weightlimit: parseInt(mediumData.weightlimit),
           speed: parseInt(mediumData.speed),
           quantity: parseInt(mediumData.quantity),
@@ -96,10 +94,6 @@ const Requests = () => {
                 <option value="2">Truck</option>
                 <option value="3">Bike</option>
               </select>
-            </label>
-            <label>
-              Name:
-              <input type="text" name="name" value={mediumData.name} onChange={handleMediumInputChange} />
             </label>
             <label>
               Weight Limit:

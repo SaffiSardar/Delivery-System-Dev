@@ -150,20 +150,18 @@ async def create_cphone(
       
 @app.post("/tmediums/")
 async def create_tmedium(
-    name: str = Query(..., min_length=1),
     weightlimit: int = Query(..., ge=0),
     speed: int = Query(..., ge=0),
     quantity: int = Query(..., ge=0),
     Mediumtype_id: Optional[int] = Query(..., ge=0)
 ):
-    print(f"Received data - Name: {name}, Weight Limit: {weightlimit}, Speed: {speed}, Quantity: {quantity}, Mediumtype ID: {Mediumtype_id}")
+    print(f"Received data -  Weight Limit: {weightlimit}, Speed: {speed}, Quantity: {quantity}, Mediumtype ID: {Mediumtype_id}")
 
-    if not name.strip():
-        raise HTTPException(status_code=422, detail="Name cannot be an empty string")
+    
 
     db = LocalSession()
     try:
-        new_tmedium = tmedium(name=name, weightlimit=weightlimit, speed=speed, quantity=quantity, Mediumtype_id=Mediumtype_id)
+        new_tmedium = tmedium(weightlimit=weightlimit, speed=speed, quantity=quantity, Mediumtype_id=Mediumtype_id)
         db.add(new_tmedium)
         db.commit()
         db.refresh(new_tmedium)
