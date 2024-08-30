@@ -28,3 +28,7 @@ button:active {
     box-shadow: 0 2px #666;
     transform: translateX(-4px);
 }
+
+button:hover {
+    background-color: #039b63;
+}
