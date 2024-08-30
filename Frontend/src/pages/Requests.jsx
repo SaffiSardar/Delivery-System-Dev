@@ -106,6 +106,7 @@ const Requests = () => {
     <div className="request-container">
       <div className="requestpanel">
         <div className="box1">
+          <button type="submit" onClick={handleMediumSubmit}>Request New Medium</button>
           <form onSubmit={handleMediumSubmit}>
             <label>
               Name:
@@ -136,6 +137,7 @@ const Requests = () => {
           </form>
         </div>
         <div className="box2">
+          <button type="submit" onClick={handleWarehouseSubmit}>New Warehouse</button>
           <form onSubmit={handleWarehouseSubmit}>
             <label>
               Name:
@@ -157,6 +159,7 @@ const Requests = () => {
           </form>
         </div>
         <div className="box3">
+          <button type="submit" onClick={handleProductSubmit}>New Product</button>
           <form onSubmit={handleProductSubmit}>
             <label>
               Name:
@@ -171,12 +174,21 @@ const Requests = () => {
               <input type="text" name="weight" value={productData.weight} onChange={handleProductInputChange} />
             </label>
             <label>
-              State ID:
-              <input type="text" name="State_id" value={productData.State_id} onChange={handleProductInputChange} />
+              State:
+              <select name="State_id" value={productData.State_id} onChange={handleProductInputChange}>
+                <option value="">Select State</option>
+                <option value="1">Liquid</option>
+                <option value="2">Gas</option>
+                <option value="3">Solid</option>
+              </select>
             </label>
             <label>
-              Fragile ID:
-              <input type="text" name="Fragile_id" value={productData.Fragile_id} onChange={handleProductInputChange} />
+              Fragile:
+              <select name="Fragile_id" value={productData.Fragile_id} onChange={handleProductInputChange}>
+                <option value="">Is it Fragile?</option>
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+              </select>
             </label>
             <button type="submit">Submit</button>
           </form>
