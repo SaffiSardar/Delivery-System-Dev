@@ -10,12 +10,7 @@ const Requests = () => {
     Mediumtype_id: '',
   });
 
-  const [warehouseData, setWarehouseData] = useState({
-    name: '',
-    Warehousepostal_id: '',
-    Warehouselocation_id: '',
-    Warehousephone_id: '',
-  });
+  
 
   const [productData, setProductData] = useState({
     name: '',
@@ -35,13 +30,7 @@ const Requests = () => {
     });
   };
 
-  const handleWarehouseInputChange = (event) => {
-    const { name, value } = event.target;
-    setWarehouseData({
-      ...warehouseData,
-      [name]: value,
-    });
-  };
+  
 
   const handleProductInputChange = (event) => {
     const { name, value } = event.target;
@@ -71,24 +60,7 @@ const Requests = () => {
     }
   };
 
-  const handleWarehouseSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await axios.post('http://localhost:8000/warehouses/', null, {
-        params: {
-          name: warehouseData.name,
-          Warehousepostal_id: warehouseData.Warehousepostal_id ? parseInt(warehouseData.Warehousepostal_id) : null,
-          Warehouselocation_id: warehouseData.Warehouselocation_id ? parseInt(warehouseData.Warehouselocation_id) : null,
-          Warehousephone_id: warehouseData.Warehousephone_id ? parseInt(warehouseData.Warehousephone_id) : null,
-        },
-      });
-      console.log('Warehouse created successfully:', response.data);
-      setErrorMessage(''); 
-    } catch (error) {
-      console.error('Error posting warehouse data:', error);
-      setErrorMessage('Error posting warehouse data: ' + error.message); 
-    }
-  };
+ 
 
   const handleProductSubmit = async (event) => {
     event.preventDefault();
@@ -143,27 +115,7 @@ const Requests = () => {
             </label>
           </form>
         </div>
-        <div className="box2">
-          <button type="submit" onClick={handleWarehouseSubmit}>New Warehouse</button>
-          <form onSubmit={handleWarehouseSubmit}>
-            <label>
-              Name:
-              <input type="text" name="name" value={warehouseData.name} onChange={handleWarehouseInputChange} />
-            </label>
-            <label>
-              Location:
-              <input type="text" name="Warehouselocation_id" value={warehouseData.Warehouselocation_id} onChange={handleWarehouseInputChange} />
-            </label>
-            <label>
-              Postal Code:
-              <input type="text" name="Warehousepostal_id" value={warehouseData.Warehousepostal_id} onChange={handleWarehouseInputChange} />
-            </label>
-            <label>
-              Landline No:
-              <input type="text" name="Warehousephone_id" value={warehouseData.Warehousephone_id} onChange={handleWarehouseInputChange} />
-            </label>
-          </form>
-        </div>
+        
         <div className="box3">
           <button type="submit" onClick={handleProductSubmit}>New Product</button>
           <form onSubmit={handleProductSubmit}>

@@ -28,7 +28,7 @@
     border-radius: 10px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .box1{
@@ -39,15 +39,6 @@
     display: flex;
     justify-content: space-evenly;
     
-}
-
-.box2{
-    background-color:#e6e6e5;
-    width: 16vw;
-    height: 80vh;
-    border-radius: 15px;
-    display: flex;
-    justify-content: space-evenly;
 }
 .box3{
     background-color:#e6e6e5;
