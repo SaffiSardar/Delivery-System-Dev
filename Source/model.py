@@ -126,9 +126,9 @@ class warehouse(Base):
     __tablename__ = 'warehouses'
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, nullable=False, index=True)  
-    Warehousepostal_id = Column(Integer, ForeignKey('warehousepostals.id'), unique=True) 
-    Warehouselocation_id = Column(Integer, ForeignKey('warehouselocations.id'), unique=True) 
-    Warehousephone_id = Column(Integer, ForeignKey('warehousephones.id'), unique=True) 
+    Warehousepostal_id = Column(Integer, ForeignKey('warehousepostals.id')) 
+    Warehouselocation_id = Column(Integer, ForeignKey('warehouselocations.id')) 
+    Warehousephone_id = Column(Integer, ForeignKey('warehousephones.id')) 
     Warehousepostal = relationship("warehousepostal", back_populates="Warehouse", uselist=False)
     Warehouselocation = relationship("warehouselocation", back_populates="Warehouse", uselist=False)
     Warehousephone = relationship("warehousephone", back_populates="Warehouse", uselist=False)
