@@ -76,6 +76,14 @@ input{
 }
 
 
+select{
+    border: none;
+    margin: 16px;
+    border-radius: 5px;
+    background-color: rgb(169, 184, 187);
+    cursor: pointer;
+}
+
 .table{
     height: 70vh;
     background-color:#e6e6e5;
