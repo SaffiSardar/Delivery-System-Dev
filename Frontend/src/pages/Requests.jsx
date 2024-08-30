@@ -133,7 +133,6 @@ const Requests = () => {
                 <option value="3">Bike</option>
               </select>
             </label>
-            <button type="submit">Submit</button>
           </form>
         </div>
         <div className="box2">
@@ -155,7 +154,6 @@ const Requests = () => {
               Landline No:
               <input type="text" name="Warehousephone_id" value={warehouseData.Warehousephone_id} onChange={handleWarehouseInputChange} />
             </label>
-            <button type="submit">Submit</button>
           </form>
         </div>
         <div className="box3">
@@ -190,7 +188,6 @@ const Requests = () => {
                 <option value="2">No</option>
               </select>
             </label>
-            <button type="submit">Submit</button>
           </form>
         </div>
       </div>
