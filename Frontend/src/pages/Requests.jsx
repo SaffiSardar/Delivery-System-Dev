@@ -106,7 +106,6 @@ const Requests = () => {
     <div className="request-container">
       <div className="requestpanel">
         <div className="box1">
-          <button type="submit" onClick={handleMediumSubmit}>Request New Medium</button>
           <form onSubmit={handleMediumSubmit}>
             <label>
               Name:
@@ -125,14 +124,18 @@ const Requests = () => {
               <input type="text" name="quantity" value={mediumData.quantity} onChange={handleMediumInputChange} />
             </label>
             <label>
-              Medium Type ID:
-              <input type="text" name="Mediumtype_id" value={mediumData.Mediumtype_id} onChange={handleMediumInputChange} />
+              Medium Type:
+              <select name="Mediumtype_id" value={mediumData.Mediumtype_id} onChange={handleMediumInputChange}>
+                <option value="">Select Medium Type</option>
+                <option value="1">Drone</option>
+                <option value="2">Truck</option>
+                <option value="3">Bike</option>
+              </select>
             </label>
             <button type="submit">Submit</button>
           </form>
         </div>
         <div className="box2">
-          <button type="submit" onClick={handleWarehouseSubmit}>New Warehouse</button>
           <form onSubmit={handleWarehouseSubmit}>
             <label>
               Name:
@@ -154,7 +157,6 @@ const Requests = () => {
           </form>
         </div>
         <div className="box3">
-          <button type="submit" onClick={handleProductSubmit}>New Product</button>
           <form onSubmit={handleProductSubmit}>
             <label>
               Name:
