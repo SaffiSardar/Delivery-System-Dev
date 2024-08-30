@@ -64,10 +64,10 @@ const Requests = () => {
         },
       });
       console.log('Medium created successfully:', response.data);
-      setErrorMessage(''); // Clear error message on success
+      setErrorMessage(''); 
     } catch (error) {
       console.error('Error posting medium data:', error);
-      setErrorMessage('Error posting medium data: ' + error.message); // Set error message
+      setErrorMessage('Error posting medium data: ' + error.message); 
     }
   };
 
@@ -83,10 +83,10 @@ const Requests = () => {
         },
       });
       console.log('Warehouse created successfully:', response.data);
-      setErrorMessage(''); // Clear error message on success
+      setErrorMessage(''); 
     } catch (error) {
       console.error('Error posting warehouse data:', error);
-      setErrorMessage('Error posting warehouse data: ' + error.message); // Set error message
+      setErrorMessage('Error posting warehouse data: ' + error.message); 
     }
   };
 
@@ -103,10 +103,10 @@ const Requests = () => {
         },
       });
       console.log('Product created successfully:', response.data);
-      setErrorMessage(''); // Clear error message on success
+      setErrorMessage(''); 
     } catch (error) {
       console.error('Error posting product data:', error);
-      setErrorMessage('Error posting product data: ' + error.message); // Set error message
+      setErrorMessage('Error posting product data: ' + error.message);
     }
   };
 

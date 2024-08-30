@@ -84,6 +84,13 @@ select{
     cursor: pointer;
 }
 
+.error-message{
+    background-color: #bdbdbc;
+    margin: 8px;
+    padding: 6px;
+    border-radius: 4px;
+}
+
 .table{
     height: 70vh;
     background-color:#e6e6e5;
