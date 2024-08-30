@@ -89,6 +89,15 @@ const Requests = () => {
           <button type="submit" onClick={handleMediumSubmit}>Request New Medium</button>
           <form onSubmit={handleMediumSubmit}>
             <label>
+              Medium Type:
+              <select name="Mediumtype_id" value={mediumData.Mediumtype_id} onChange={handleMediumInputChange}>
+                <option value="">Select Medium Type</option>
+                <option value="1">Drone</option>
+                <option value="2">Truck</option>
+                <option value="3">Bike</option>
+              </select>
+            </label>
+            <label>
               Name:
               <input type="text" name="name" value={mediumData.name} onChange={handleMediumInputChange} />
             </label>
@@ -104,15 +113,7 @@ const Requests = () => {
               Quantity:
               <input type="text" name="quantity" value={mediumData.quantity} onChange={handleMediumInputChange} />
             </label>
-            <label>
-              Medium Type:
-              <select name="Mediumtype_id" value={mediumData.Mediumtype_id} onChange={handleMediumInputChange}>
-                <option value="">Select Medium Type</option>
-                <option value="1">Drone</option>
-                <option value="2">Truck</option>
-                <option value="3">Bike</option>
-              </select>
-            </label>
+            
           </form>
         </div>
         

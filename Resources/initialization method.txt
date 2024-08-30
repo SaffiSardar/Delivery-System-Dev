@@ -16,5 +16,9 @@ upgrade alembic to initiate models and run code through migrations
 16.make frontend
 17. install node and npm
 18.initiate project in react env
+19.deign components
+20.design pages
+21.add fetching and posting, button functionality
+22.authorization
 
 
