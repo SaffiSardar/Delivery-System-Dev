@@ -25,6 +25,8 @@ const Requests = () => {
     Fragile_id: '',
   });
 
+  const [errorMessage, setErrorMessage] = useState('');
+
   const handleMediumInputChange = (event) => {
     const { name, value } = event.target;
     setMediumData({
@@ -62,8 +64,10 @@ const Requests = () => {
         },
       });
       console.log('Medium created successfully:', response.data);
+      setErrorMessage(''); // Clear error message on success
     } catch (error) {
       console.error('Error posting medium data:', error);
+      setErrorMessage('Error posting medium data: ' + error.message); // Set error message
     }
   };
 
@@ -79,8 +83,10 @@ const Requests = () => {
         },
       });
       console.log('Warehouse created successfully:', response.data);
+      setErrorMessage(''); // Clear error message on success
     } catch (error) {
       console.error('Error posting warehouse data:', error);
+      setErrorMessage('Error posting warehouse data: ' + error.message); // Set error message
     }
   };
 
@@ -97,8 +103,10 @@ const Requests = () => {
         },
       });
       console.log('Product created successfully:', response.data);
+      setErrorMessage(''); // Clear error message on success
     } catch (error) {
       console.error('Error posting product data:', error);
+      setErrorMessage('Error posting product data: ' + error.message); // Set error message
     }
   };
 
@@ -183,7 +191,7 @@ const Requests = () => {
             <label>
               Fragile:
               <select name="Fragile_id" value={productData.Fragile_id} onChange={handleProductInputChange}>
-                <option value="">Is it Fragile?</option>
+                <option value="">Select Fragile Option</option>
                 <option value="1">Yes</option>
                 <option value="2">No</option>
               </select>
@@ -191,6 +199,7 @@ const Requests = () => {
           </form>
         </div>
       </div>
+      {errorMessage && <div className="error-message">{errorMessage}</div>}
     </div>
   );
 };
