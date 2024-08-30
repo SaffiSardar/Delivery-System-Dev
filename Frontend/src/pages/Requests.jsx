@@ -96,7 +96,7 @@ const Requests = () => {
               </select>
             </label>
             <label>
-              Weight Limit:
+              Need By ( days ):
               <input type="text" name="weightlimit" value={mediumData.weightlimit} onChange={handleMediumInputChange} />
             </label>
             <label>

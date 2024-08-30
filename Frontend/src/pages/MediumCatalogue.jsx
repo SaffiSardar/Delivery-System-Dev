@@ -62,7 +62,7 @@ const MediumCatalogue = () => {
                 <th>ID</th>
                 <th>Type</th>
                 <th>Speed</th>
-                <th>Weight Limit</th>
+                <th>Need by ( days )</th>
                 <th>Quantity</th>
               </tr>
             </thead>
