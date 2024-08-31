@@ -1,0 +1,10 @@
+Backend Packages:
+->sqlalchemy
+->uvicorn
+->fastapi
+->typing
+->pytest
+->faker
+->httpx
+->pytest-benchmark
+->pytest-timeout
