@@ -11,7 +11,7 @@
 }
 
 .OrderStats{
-    height: 20vh;
+    height: 13vh;
     background-color: rgba(182, 180, 178, 0.233);
     border-radius: 10px;
     display: flex;
@@ -20,20 +20,49 @@
 }
 
 
-.OrderStats .activeorders{
-    height: 15vh;
-    width: 30vw;
+.OrderStats .completedorders{
+    height: 9vh;
+    width: 25vw;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    background-color: rgb(184, 184, 184);
+    justify-content: center;
+    gap: 50px;
+    border-radius: 20px;
+}
+.OrderStats .div h1{
+    font-size: 35px;
+    font-weight: 500;
 }
 
 .OrderStats .pendingorders{
-    height: 15vh;
-    width: 30vw;
+    height: 9vh;
+    width: 25vw;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    background-color: rgb(184, 184, 184);
+    border-radius: 20px;
+    justify-content: center;
+    gap: 50px;
+    
+}
+
+.completedpending{
+    background-color: black;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.completedpending h2{
+    color: aliceblue;
+    font-size: 25px;
+}
+
+.heading{
+    font-size: 20px;
 }
 
 .OrderStats p{
@@ -48,7 +77,7 @@
 }
 
 .back img{
-    height: 65vh;
+    height: 76vh;
     width: 100%;
     border-radius: 10px;
     opacity: 80%;

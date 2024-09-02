@@ -1,8 +1,6 @@
 import React from 'react'
 import './Main.css'
-import Card from './Card/card'
 import { assets } from '../../assets/assets'
-import MediumStats from './MediumStats/MediumStats'
 
 const Main = () => {
   return (
@@ -11,17 +9,19 @@ const Main = () => {
         <img src={assets.background} alt="" />
       </div>
         <div className="OrderStats">
-          <div className="activeorders">
-            <p>active orders</p>
-            <div className="outp"></div>
+          <div className="completedorders">
+            <div className="heading">Completed Orders :</div>
+            <div className="completedpending"><h2>23</h2></div>
           </div>
+          <div className="div"><h1>Delivery System</h1></div>
           <div className="pendingorders">
-            <p>pending orders</p>
-            <div className="outp"></div>
+          <div className="heading">Pending Orders :</div>
+            <div className="completedpending"><h2>10</h2></div>
           </div>
         </div>
-      
     </div>
+      
+ 
   )
 }
 
