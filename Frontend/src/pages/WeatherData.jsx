@@ -66,7 +66,7 @@ const WeatherData = () => {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Date</th>
+                <th>Date ( Search by )</th>
                 <th>Weather</th>
                 <th>Wind Speed</th>
                 <th>Humidity</th>
