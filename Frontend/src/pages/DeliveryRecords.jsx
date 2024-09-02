@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchBox from '../Components/SearchBox/SearchBox';
+import Main from '../Components/Main/Main'; // Import Main component
 
 const DeliveryRecords = () => {
   const [deliveries, setDeliveries] = useState([]);
@@ -8,11 +9,22 @@ const DeliveryRecords = () => {
   const [error, setError] = useState(null);
   const [currentId, setCurrentId] = useState(1);
   const [hasMore, setHasMore] = useState(true);
-  const [searchTerm, setSearchTerm] = useState(''); // New state for search term
+  const [searchTerm, setSearchTerm] = useState(''); 
+  const [pendingCount, setPendingCount] = useState(0);
+  const [completedCount, setCompletedCount] = useState(0);
 
   useEffect(() => {
     fetchDeliveryData();
   }, [currentId]);
+
+  useEffect(() => {
+    // Calculate counts whenever deliveries change
+    const pending = deliveries.filter(delivery => delivery.status === 'Pending').length;
+    const completed = deliveries.filter(delivery => delivery.status === 'Completed').length;
+
+    setPendingCount(pending);
+    setCompletedCount(completed);
+  }, [deliveries]);
 
   const fetchDeliveryData = async () => {
     if (!hasMore) return;
@@ -47,21 +59,22 @@ const DeliveryRecords = () => {
   };
 
   const handleSearch = (term) => {
-    setSearchTerm(term); // Update the search term when input changes
+    setSearchTerm(term); 
   };
 
   const filteredDeliveries = deliveries.filter((delivery) =>
-    delivery.daddress.toLowerCase().includes(searchTerm.toLowerCase()) || // Filter by delivery address
-    delivery.status.toLowerCase().includes(searchTerm.toLowerCase())       // Filter by status
+    delivery.daddress.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    delivery.status.toLowerCase().includes(searchTerm.toLowerCase())       
   );
 
   return (
     <div className="container">
-      <SearchBox onSearch={handleSearch} /> {/* Pass search handler */}
+      {/* <Main completedCount={completedCount} pendingCount={pendingCount} /> Pass counts to Main */}
+      <SearchBox onSearch={handleSearch} />
       <div className="table">
         {loading && <p>Loading delivery data...</p>}
         {error && <p>{error}</p>}
-        {filteredDeliveries.length > 0 ? ( // Use filteredDeliveries for display
+        {filteredDeliveries.length > 0 ? ( 
           <table>
             <thead>
               <tr>
