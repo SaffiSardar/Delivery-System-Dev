@@ -8,6 +8,7 @@ const Products = () => {
   const [error, setError] = useState(null);
   const [currentId, setCurrentId] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     fetchProductData();
@@ -20,12 +21,10 @@ const Products = () => {
     setError(null);
 
     try {
-
       const response = await axios.get(`http://127.0.0.1:8000/products/${currentId}`);
       const product = response.data;
 
       if (product && !product.error) {
-
         const stateresponse = await axios.get(`http://127.0.0.1:8000/states/${product.State_id}`);
         const state = stateresponse.data;
 
@@ -53,13 +52,21 @@ const Products = () => {
     }
   };
 
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+  };
+
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="container">
-      <SearchBox />
+      <SearchBox onSearch={handleSearch} />
       <div className="table">
         {loading && <p>Loading product data...</p>}
         {error && <p>{error}</p>}
-        {products.length > 0 ? (
+        {filteredProducts.length > 0 ? (
           <table>
             <thead>
               <tr>
@@ -72,7 +79,7 @@ const Products = () => {
               </tr>
             </thead>
             <tbody>
-              {products.map((product) => (
+              {filteredProducts.map((product) => (
                 <tr key={product.id}>
                   <td>{product.id}</td>
                   <td>{product.name}</td>

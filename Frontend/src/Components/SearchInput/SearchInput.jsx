@@ -1,10 +1,16 @@
-import React from 'react'
-import './SearchInput.css'
+import React from 'react';
+import './SearchInput.css';
 
-const SearchInput = () => {
+const SearchInput = ({ value, onChange }) => {
   return (
-    <input type="text" name="" className='input' placeholder='ID' />
-  )
-}
+    <input 
+      type="text" 
+      className='input' 
+      placeholder='Name' 
+      value={value} 
+      onChange={onChange} 
+    />
+  );
+};
 
-export default SearchInput
+export default SearchInput;
