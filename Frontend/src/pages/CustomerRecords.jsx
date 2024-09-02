@@ -8,6 +8,7 @@ const CustomerRecords = () => {
   const [error, setError] = useState(null);
   const [currentId, setCurrentId] = useState(1); 
   const [hasMore, setHasMore] = useState(true);
+  const [searchTerm, setSearchTerm] = useState(''); // New state for search term
 
   useEffect(() => {
     fetchCustomerData();
@@ -20,20 +21,16 @@ const CustomerRecords = () => {
     setError(null);
 
     try {
-      
       const customerResponse = await axios.get(`http://127.0.0.1:8000/customers/${currentId}`);
       const customer = customerResponse.data;
 
       if (customer && !customer.error) {
-        
         const emailResponse = await axios.get(`http://127.0.0.1:8000/cemails/${customer.Cemail_id}`);
         const email = emailResponse.data;
 
-        
         const cnicResponse = await axios.get(`http://127.0.0.1:8000/ccnics/${customer.Ccnic_id}`);
         const cnic = cnicResponse.data;
 
-        
         const fullCustomer = {
           ...customer,
           email: email.email || "No email associated",
@@ -53,13 +50,21 @@ const CustomerRecords = () => {
     }
   };
 
+  const handleSearch = (term) => {
+    setSearchTerm(term); // Update the search term when input changes
+  };
+
+  const filteredCustomers = customers.filter((customer) =>
+    customer.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className='container'>
-      <SearchBox />
+      <SearchBox onSearch={handleSearch} /> {/* Pass search handler */}
       <div className='table'>
         {loading && <p>Loading customer data...</p>}
         {error && <p>{error}</p>}
-        {customers.length > 0 ? (
+        {filteredCustomers.length > 0 ? ( // Use filteredCustomers for display
           <table>
             <thead>
               <tr>
@@ -69,7 +74,7 @@ const CustomerRecords = () => {
               </tr>
             </thead>
             <tbody>
-              {customers.map((customer) => (
+              {filteredCustomers.map((customer) => (
                 <tr key={customer.id}>
                   <td>{customer.name}</td>
                   <td>{customer.email}</td>
