@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
 import SearchBox from '../Components/SearchBox/SearchBox';
 
 const Warehouses = () => {
   const [warehouses, setWarehouses] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [currentId, setCurrentId] = useState(1); 
+  const [currentId, setCurrentId] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+  const [searchTerm, setSearchTerm] = useState(''); // New state for search term
 
   useEffect(() => {
     fetchWarehouseData();
@@ -21,22 +21,18 @@ const Warehouses = () => {
     setError(null);
 
     try {
-
       const response = await axios.get(`http://127.0.0.1:8000/warehouses/${currentId}`);
       const warehouse = response.data;
 
       if (warehouse && !warehouse.error) {
+        const postalResponse = await axios.get(`http://127.0.0.1:8000/warehousepostals/${warehouse.Warehousepostal_id}`);
+        const postal = postalResponse.data;
 
-        const postalresponse = await axios.get(`http://127.0.0.1:8000/warehousepostals/${warehouse.Warehousepostal_id}`)
-        const postal = postalresponse.data;
+        const locationResponse = await axios.get(`http://127.0.0.1:8000/warehouselocations/${warehouse.Warehouselocation_id}`);
+        const location = locationResponse.data;
 
-        const locationreponse = await axios.get(`http://127.0.0.1:8000/warehouselocations/${warehouse.Warehouselocation_id}`)
-        const location = locationreponse.data;
-
-        const phonereponse = await axios.get(`http://127.0.0.1:8000/warehousephones/${warehouse.Warehousephone_id}`)
-        const phone = phonereponse.data;
-        
-        console.log(postal.postal)
+        const phoneResponse = await axios.get(`http://127.0.0.1:8000/warehousephones/${warehouse.Warehousephone_id}`);
+        const phone = phoneResponse.data;
 
         const fullWarehouse = {
           ...warehouse,
@@ -45,8 +41,8 @@ const Warehouses = () => {
           phone: phone.phone || "No phone associated",
         };
 
-        setWarehouses(prevWarehouses => [...prevWarehouses, fullWarehouse]); 
-        setCurrentId(prevId => prevId + 1); 
+        setWarehouses(prevWarehouses => [...prevWarehouses, fullWarehouse]);
+        setCurrentId(prevId => prevId + 1);
       } else {
         setHasMore(false); 
       }
@@ -58,13 +54,23 @@ const Warehouses = () => {
     }
   };
 
+  const handleSearch = (term) => {
+    setSearchTerm(term); // Update the search term when input changes
+  };
+
+  const filteredWarehouses = warehouses.filter((warehouse) =>
+    warehouse.name.toLowerCase().includes(searchTerm.toLowerCase()) || // Filter by name
+    warehouse.location.toLowerCase().includes(searchTerm.toLowerCase()) || // Filter by location
+    warehouse.postal.toLowerCase().includes(searchTerm.toLowerCase()) // Filter by postal code
+  );
+
   return (
     <div className="container">
-      <SearchBox />
+      <SearchBox onSearch={handleSearch} /> {/* Pass search handler */}
       <div className="table">
         {loading && <p>Loading warehouse data...</p>}
         {error && <p>{error}</p>}
-        {warehouses.length > 0 ? (
+        {filteredWarehouses.length > 0 ? ( // Use filteredWarehouses for display
           <table>
             <thead>
               <tr>
@@ -76,7 +82,7 @@ const Warehouses = () => {
               </tr>
             </thead>
             <tbody>
-              {warehouses.map((warehouse) => (
+              {filteredWarehouses.map((warehouse) => (
                 <tr key={warehouse.id}>
                   <td>{warehouse.id}</td>
                   <td>{warehouse.name}</td>

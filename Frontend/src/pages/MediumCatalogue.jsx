@@ -8,6 +8,7 @@ const MediumCatalogue = () => {
   const [error, setError] = useState(null);
   const [currentId, setCurrentId] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+  const [searchTerm, setSearchTerm] = useState(''); // New state for search term
 
   useEffect(() => {
     fetchVehicleData();
@@ -20,21 +21,17 @@ const MediumCatalogue = () => {
     setError(null);
 
     try {
-
       const response = await axios.get(`http://127.0.0.1:8000/tmediums/${currentId}`);
       const vehicle = response.data;
 
       if (vehicle && !vehicle.error) {
-
-        const typereponse = await axios.get(`http://127.0.0.1:8000/mediumtypes/${vehicle.Mediumtype_id}`)
-        const   type = typereponse.data;
+        const typeResponse = await axios.get(`http://127.0.0.1:8000/mediumtypes/${vehicle.Mediumtype_id}`);
+        const type = typeResponse.data;
 
         const fullVehicle = {
           ...vehicle,
           type: type.type || "No type associated"
         };
-
-
 
         setVehicles(prevVehicles => [...prevVehicles, fullVehicle]);
         setCurrentId(prevId => prevId + 1);
@@ -49,25 +46,36 @@ const MediumCatalogue = () => {
     }
   };
 
+  const handleSearch = (term) => {
+    setSearchTerm(term); // Update the search term when input changes
+  };
+
+  const filteredVehicles = vehicles.filter((vehicle) =>
+    vehicle.type.toLowerCase().includes(searchTerm.toLowerCase()) || // Filter by type
+    vehicle.speed.toString().includes(searchTerm) ||                 // Filter by speed
+    vehicle.weightlimit.toString().includes(searchTerm) ||           // Filter by weight limit
+    vehicle.quantity.toString().includes(searchTerm)                 // Filter by quantity
+  );
+
   return (
     <div className="container">
-      <SearchBox />
+      <SearchBox onSearch={handleSearch} /> {/* Pass search handler */}
       <div className="table">
         {loading && <p>Loading vehicle data...</p>}
         {error && <p>{error}</p>}
-        {vehicles.length > 0 ? (
+        {filteredVehicles.length > 0 ? ( // Use filteredVehicles for display
           <table>
             <thead>
               <tr>
                 <th>ID</th>
                 <th>Type</th>
                 <th>Speed</th>
-                <th>Need by ( days )</th>
+                <th>Need by ( days ) ( Name )</th>
                 <th>Quantity</th>
               </tr>
             </thead>
             <tbody>
-              {vehicles.map((vehicle) => (
+              {filteredVehicles.map((vehicle) => (
                 <tr key={vehicle.id}>
                   <td>{vehicle.id}</td>
                   <td>{vehicle.type}</td>
@@ -81,7 +89,6 @@ const MediumCatalogue = () => {
         ) : (
           !loading && <p>No vehicle data available.</p>
         )}
-        
       </div>
     </div>
   );

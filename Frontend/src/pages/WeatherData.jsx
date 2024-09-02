@@ -9,6 +9,7 @@ const WeatherData = () => {
   const [error, setError] = useState(null);
   const [currentId, setCurrentId] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+  const [searchTerm, setSearchTerm] = useState(''); // New state for search term
 
   useEffect(() => {
     fetchWeatherData();
@@ -18,27 +19,20 @@ const WeatherData = () => {
     if (!hasMore) return;
 
     setLoading(true);
-    setError(null);   
+    setError(null);
 
     try {
-
       const response = await axios.get(`http://127.0.0.1:8000/weatherdatas/${currentId}`);
       const weather = response.data;
       
       if (weather && !weather.error) {
-        console.log('Weathertype_id:', weather.Weathertype_id);
-
-        const typeresponse = await axios.get(`http://127.0.0.1:8000/weathertypes/${weather.Weathertype_id}`);
-
-        const type = typeresponse.data;
-        
+        const typeResponse = await axios.get(`http://127.0.0.1:8000/weathertypes/${weather.Weathertype_id}`);
+        const type = typeResponse.data;
 
         const fullWeather = {
           ...weather,
-          type: type.Weather || "No weather associated", //here Weather is object in that foreign class 
-          
+          type: type.Weather || "No weather associated",
         };
-
 
         setWeatherData(prevData => [...prevData, fullWeather]);
         setCurrentId(prevId => prevId + 1);
@@ -53,13 +47,21 @@ const WeatherData = () => {
     }
   };
 
+  const handleSearch = (term) => {
+    setSearchTerm(term); // Update the search term when input changes
+  };
+
+  const filteredWeatherData = weatherData.filter((weather) =>
+    weather.date.toLowerCase().includes(searchTerm.toLowerCase()) // Filter by date
+  );
+
   return (
     <div className="container">
-      <SearchBox />
+      <SearchBox onSearch={handleSearch} /> {/* Pass search handler */}
       <div className="table">
         {loading && <p>Loading weather data...</p>}
         {error && <p>{error}</p>}
-        {weatherData.length > 0 ? (
+        {filteredWeatherData.length > 0 ? ( // Use filteredWeatherData for display
           <table>
             <thead>
               <tr>
@@ -72,7 +74,7 @@ const WeatherData = () => {
               </tr>
             </thead>
             <tbody>
-              {weatherData.map((weather) => (
+              {filteredWeatherData.map((weather) => (
                 <tr key={weather.id}>
                   <td>{weather.id}</td>
                   <td>{weather.date}</td>
