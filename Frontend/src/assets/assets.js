@@ -13,6 +13,7 @@ import icons8_logout_48 from './icons8_logout_48.png'
 import branch from './branch.jpg'
 import icons8_truck_50 from './icons8_truck_50.png'
 import icons8_request_48 from './icons8_request_48.png'
+import background from './background.jpg'
 
 
 export const assets = {
@@ -29,5 +30,6 @@ export const assets = {
     icons8_logout_48,
     branch,
     icons8_truck_50,
-    icons8_request_48
+    icons8_request_48,
+    background
 }
